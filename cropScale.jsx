@@ -6,7 +6,7 @@
      currentFileRef = "",
      inputFolder    = Folder.selectDialog("Please select the folder with Files to process"),
      hotFolder      = new Folder(inputFolder),
-     exportFolder   = inputFolder+"/output/";
+     exportFolder   = inputFolder+"/../output/";
 
 function checkForFiles() {
     filesArray = [];
@@ -69,7 +69,7 @@ function resizeAndCrop() {
     docWidth = doc.width;
     docHeight = doc.height;
     ratio = docHeight/docWidth;
-    //createSmartObject();
+    createSmartObject();
     selectSubject ();
     crop();
     resize();
