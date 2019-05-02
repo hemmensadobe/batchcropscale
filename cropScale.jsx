@@ -1,5 +1,5 @@
 ﻿// Settings
- var doc            = "",
+ var doc = "",
      docWidth       = 0,
      docHeight      = 0,
      ratio          = 0,
