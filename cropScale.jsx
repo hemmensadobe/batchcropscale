@@ -17,10 +17,12 @@ function checkForFiles() {
     } 
     else {
         var child = '';
+        var childStr ="";
         // Process files
         for (var i = 0; i < aChildren.length; i++) {
             child = aChildren[i];
-            filesArray.push(child);
+            childStr = String(child);
+            if (childStr.indexOf(".DS_Store") === -1)filesArray.push(child);
         }
     }
     if(filesArray.length > 0) {
