@@ -52,12 +52,12 @@ function openImage(image, cropType) {
      // Sizing
      if (cropType == "ee" ) {
             resizeHeight = resizeWidth = 433;
-            padding = 4;
+            padding = 8;
     }
     else {
           resizeHeight = 800;
           resizeWidth = 460;
-          padding = 2;
+          padding = 4;
     }
     
     var fileRef = new File(image);
@@ -95,26 +95,6 @@ function selectSubject() {
     var idsampleAllLayers = stringIDToTypeID( "sampleAllLayers" );
     desc63.putBoolean( idsampleAllLayers, false );
     executeAction( idautoCutout, desc63, DialogModes.NO );
-}
-
-function maskSelection() {
-    var idMk = charIDToTypeID( "Mk  " );
-    var desc545 = new ActionDescriptor();
-    var idNw = charIDToTypeID( "Nw  " );
-    var idChnl = charIDToTypeID( "Chnl" );
-    desc545.putClass( idNw, idChnl );
-    var idAt = charIDToTypeID( "At  " );
-    var ref65 = new ActionReference();
-    var idChnl = charIDToTypeID( "Chnl" );
-    var idChnl = charIDToTypeID( "Chnl" );
-    var idMsk = charIDToTypeID( "Msk " );
-    ref65.putEnumerated( idChnl, idChnl, idMsk );
-    desc545.putReference( idAt, ref65 );
-    var idUsng = charIDToTypeID( "Usng" );
-    var idUsrM = charIDToTypeID( "UsrM" );
-    var idRvlS = charIDToTypeID( "RvlS" );
-    desc545.putEnumerated( idUsng, idUsrM, idRvlS );
-    executeAction( idMk, desc545, DialogModes.NO );
 }
 
 function crop() {
@@ -165,7 +145,7 @@ function exportImage() {
 	    psd_Opt.annotations  = true; // Preserve annonations.
 	    psd_Opt.alphaChannels = true; // Preserve alpha channels.
 	    psd_Opt.spotColors = true; // Preserve spot colors.
-         app.activeDocument.saveAs(psdFile, psd_Opt, true, Extension.LOWERCASE);
+        app.activeDocument.saveAs(psdFile, psd_Opt, true, Extension.LOWERCASE);
         
         var jpgFile = new File(savePath + '/' +cropSize+'/'+ docName+ '.jpeg');
         var jpgSaveOptions = new JPEGSaveOptions();
